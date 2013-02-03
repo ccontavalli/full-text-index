@@ -5,15 +5,10 @@ FLAGS = -O9 -lm -fomit-frame-pointer -W -Wall -Winline -DDEBUG=0 -DNDEBUG=1
 #FLAGS = -O9 -DINDEXREPORT 
 #FLAGS = -O9 -DINDEXREPORT -DMEMCTRL
 
-all: lzindex.a build_index run_queries
-
-build_index: build_index.c lzindex.a
-	gcc $(FLAGS) -o build_index build_index.c lzindex.a
-run_queries: run_queries.c lzindex.a
-	gcc $(FLAGS) -o run_queries run_queries.c lzindex.a
+all: lzindex.a
 
 clean:
-	rm -f *.o *.a build_index run_queries
+	rm -f *.o *.a
 
 
 # generates the LZ-index library
@@ -21,10 +16,6 @@ clean:
 lzindex.a: lzindex.o lztrie.o revtrie.o nodemap.o position.o trie.o heap.o parentheses.o bitmap.o hash.o mappings.o basics.o
 	ar rc lzindex.a lzindex.o lztrie.o revtrie.o nodemap.o position.o trie.o heap.o parentheses.o bitmap.o hash.o mappings.o basics.o 
 
-run_queries.o: run_queries.c
-	gcc $(FLAGS) -c run_queries.c
-build_index.o: build_index.c
-	gcc $(FLAGS) -c build_index.c
 lzindex.o: lzindex.c search.c index.c persist.c
 	gcc $(FLAGS) -c lzindex.c
 lztrie.o: lztrie.c
