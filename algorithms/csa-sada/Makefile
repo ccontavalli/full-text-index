@@ -16,9 +16,9 @@ index: suftest3.test.o comparray4.o mmap.o qsufsort.o
 	ar rc csa.a suftest3.test.o comparray4.o mmap.o qsufsort.o
 
 clean:
-	-rm *~ *.o *.bak 
+	-rm -f *~ *.o *.bak 
 cleanall:
-	-rm *~ *.o *.bak .a
+	-rm -f *~ *.o *.bak .a
 
 tarfile:
 	tar zcvf sada_csa.tgz ?akefile 386.c mman.h suftest3.test.* comparray4.* qsufsort.* mmap.* COPYRIGHT README

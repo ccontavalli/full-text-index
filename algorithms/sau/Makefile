@@ -1,17 +1,20 @@
 CC=gcc
-CFLAGS=-W -Wall -pedantic -pedantic-errors -O9 -Winline
+CFLAGS= -W -Wall -pedantic -pedantic-errors -O9 -DNDEBUG -I../../
+
+DSDIR=../../ds
+DSFILES=$(DSDIR)/ds.o $(DSDIR)/globals.o $(DSDIR)/helped.o $(DSDIR)/shallow.o $(DSDIR)/deep2.o $(DSDIR)/blind2.o 
 
 # pattern rule for all objects files
 %.o: %.c *.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
 all: index
-index: SAu.o ds/ds.o ds/globals.o ds/shallow.o ds/helped.o ds/deep2.o ds/blind2.o
-	ar rc SAu.a SAu.o ds/ds.o ds/globals.o ds/shallow.o ds/helped.o ds/deep2.o ds/blind2.o
+index: SAu.o $(DSFILES)
+	ar rc SAu.a SAu.o $(DSFILES)
 clean:
-	rm -f *~ *.o ; cd ds ; make -f Makefile clean ; cd ..
+	rm -f *~ *.o ; cd $(DSDIR) ; make -f Makefile clean ; cd ..
 cleanall:
-	rm -f *~ *.o *.a; cd ds ; make -f Makefile cleanall ; cd ..
+	rm -f *~ *.o *.a; cd $(DSDIR) ; make -f Makefile cleanall ; cd ..
 tarfile:
 	tar zcvf SAu.tgz ?akefile *.c *.h ds README COPYRIGHT
 

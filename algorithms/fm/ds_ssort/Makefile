@@ -43,10 +43,4 @@ bwt: bwt.c ds_ssort.a
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean: 
-	rm -f *.o *.a
-
-
-
-
-
-
+	rm -f *.o *.a bwt ds testlcp unbwt

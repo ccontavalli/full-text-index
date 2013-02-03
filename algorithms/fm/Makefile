@@ -52,7 +52,7 @@ fm_occurences.o:	fm_occurences.c fm_mng_bits.o
 fm_extract.o:	fm_extract.c fm_mng_bits.o
 
 clean:	
-	rm -f *.o  fm_index.a *~ *.a ds_ssort/*.a ds_ssort/*.o
+	rm -f *.o  fm_index.a *~ *.a ds_ssort/*.a ds_ssort/*.o fm_build fm_search
 	
 release:	
 	make clean; rm -f fm_search fm_build fmi_qshell fmi_bshell bexample ds_ssort/ds ds_ssort/bwt ds_ssort/unbwt ds_ssort/testlcp;

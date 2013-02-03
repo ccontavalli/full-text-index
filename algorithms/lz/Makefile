@@ -12,6 +12,9 @@ build_index: build_index.c lzindex.a
 run_queries: run_queries.c lzindex.a
 	gcc $(FLAGS) -o run_queries run_queries.c lzindex.a
 
+clean:
+	rm -f *.o *.a
+
 
 # generates the LZ-index library
 
@@ -47,7 +50,7 @@ hash.o: hash.c
 basics.o: basics.c
 	gcc $(FLAGS) -c basics.c 
 
-basics.h: makefile
+basics.h: Makefile
 	touch basics.h
 bitmap.h: basics.h
 	touch bitmap.h
