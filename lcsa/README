@@ -1,0 +1,87 @@
+Introduction
+============
+This index implements a suffix array, using 32 bits for each entry.
+
+How to make
+===========
+To make the index just give the command 'make index', this will
+create 'SA_BPE.a'.
+
+How to use the index
+====================
+Just follow the API presented in the site:
+http://pizzachili.dcc.uchile.cl
+And, include, in your program, interface.h located in
+http://pizzachili.dcc.uchile.cl/utils/
+
+
+How to compile using the index
+==============================
+To use this index you must compile your program linking 'SAu.a'
+For example:
+g++ your_program.c -o your_program SA_BPE.a
+
+Special options and cases
+=========================
+-if build_option="copy_text" the index will copy the text
+an internal variable, and free it when the index is destroy.
+Otherwise the index will not own the text itself,
+then when you free the index the text will not be free.
+
+-if build_option="copy_text;free_text" the index will copy
+the text and free it immediately after copy it.
+
+-if build_option="samplerate=<number>" the index will store
+an absolute of the suffix array every multiple of <number>. 
+The default value is 64.
+
+if build_option="SA_treap" the index will be constructed
+using a treap. This is the exact algoritm for Repair 
+but is rather slow.
+  In this case (SA_treap) we have two extra options
+    -if build_option="max_phrase=<number>" the phrases can not
+    cross every <number> positions of the suffix array.
+    The default value is 256.
+    -if build_option="cutoff=<number>" the index will apply Repair
+    while the dictionary size is lower than <number> % of the Suffix
+    array. The default value is 100.
+  Also for this case in bpe.cpp we have three defines:
+    #define BPE_MINIMO 1
+    #define BPE_MINIMOTREAP 1
+    -BPE_MINIMO establishs that pairs with frequency > BPE_MINIMO 
+     will be used the first time.
+    -BPE_MINIMOTREAP establishs that only new pairs with frequency > BPE_MINIMOTREAP
+     will be inserted in the treap.
+
+if build_option="SA_psi" the index will be constructed
+using the Psi function. This is an aproximated algorithm for
+Repair but is faster.
+  In this case (SA_psi) we have two extra options
+    -if build_option="max_phrase=<number>" the phrases can not
+    cross every <number> positions of the suffix array.
+    The default value is 256.
+    -if build_option="cutoff=<number>" the index will apply Repair
+    while the dictionary size is lower than <number> % of the Suffix
+    array. The default value is 100.
+    -if build_option="s=<number>", refer to paper. 
+    -if build_option="delta=<number>", delta'=1-1/delta, where delta'
+    is the original delta.
+    -if build_option="gamma=<number>", refer to paper. 
+
+
+if build_option="verbose" the index will be constructed
+showing some statistics. 
+
+-To save an index of a text file "xxxx", always give "xxxx" as
+filename. The index will create a file "xxxx.sa_bpe"
+
+-To load an index of a text file "xxxx", always give "xxxx" as
+filename, and it will load "xxxx" and "xxxx.sa_bpe" at search time.
+
+
+
+
+
+
+
+

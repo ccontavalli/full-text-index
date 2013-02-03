@@ -1,0 +1,30 @@
+
+This is the implementation of a reduced version of the Navarro's
+LZ-index data structure. For a text T of length u, this version
+requires (3+epsilon)uH_k + o(u log(sigma)) bits, where H_k is the
+k-th order emperical entropy of T, and sigma is the alphabet size.
+
+This code belongs to Diego Arroyuelo and Gonzalo Navarro, 2006.
+
+It can be freely used for teaching and research purposes. Use for any other
+purpose requires written permission of Diego Arroyuelo or Gonzalo Navarro.
+
+The code can also be freely distributed, provided this notice is kept attached
+in unaltered form.
+
+We give no guarantee that the code is free of bugs or that it fits any particular
+purpose.
+
+Please read the COPYRIGHT file.
+
+To build: make
+
+It generates the LZ-index library in the file "lzindex.a"
+
+To use: To use the LZ-index library, please compile your main program along with
+the file "lzindex.a". For example, if your program is "run_queries.c", then you
+must use:
+
+# gcc run_queries.c -o run_queries lzindex.a
+
+

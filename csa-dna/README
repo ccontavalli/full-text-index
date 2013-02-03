@@ -1,0 +1,52 @@
+Introduction
+============
+   This file contains an implementation of the interface for CSA
+   supporting only DNA files.
+
+   For details, please contact
+     Kunihiko Sadakane
+     Kyushu University, Japan
+     sada@csce.kyushu-u.ac.jp
+
+How to make
+===========
+To make the index just give the command 'make', this will
+create 'csa.a', 'csa_build', 'csa_run'.
+
+How to use the index
+====================
+Just follow the API presented in the site:
+http://pizzachili.dcc.uchile.cl
+And, include, in your program, interface.h located in
+http://pizzachili.dcc.uchile.cl/utils/
+
+
+How to compile using the index
+==============================
+To use this index you must compile your program linking 'csa.a'
+For examples:
+gcc your_program.c -lm -o your_program csa.a
+
+IMPORTANT
+=========
+The input string should consist of only 'acgt'.
+
+Special options and cases
+=========================
+-if build_option="-D <number>" then samplerate will be
+interval between two indices of the suffix array stored explicitly.
+That is, SA[i*samplerate] is stored explicitly. The default value is 64.
+
+-if build_option="-D2 <number>" then samplerate will be
+interval between two indices of the inverse suffix array stored explicitly.
+That is, ISA[i*samplerate] is stored explicitly. The default value is 256.
+Note that "-D <number>" also sets D2 value as <number>*4.
+
+-if build_option="-L <number>" then rank values are sampled for
+every 2^<number> numbers.  The default value is 8, that is, for
+every 256 values.
+
+-if you want specify more than one option, separate them with a blank.
+For example:
+build_option="-D 16 -D2 32 -L 7"
+

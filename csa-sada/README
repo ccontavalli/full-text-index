@@ -1,0 +1,69 @@
+Introduction
+============
+   This file contains an implementation of the interface for CSA.
+   For more information, see 
+
+   K. Sadakane. Compressed text databases with efficient query
+     algorithms based on the compressed suffix array.
+     In Proceedings 11th Annual International Symposium on Algorithms
+     and Computation (ISAAC)}, LNCS v. 1969, pages 410--421, 2000.
+
+   K. Sadakane. Succinct representations of lcp information and 
+     improvements in the compressed suffix arrays.
+     In Proceedings 13th Annual ACM-SIAM Symposium on Discrete
+     Algorithms (SODA), 2002.
+
+   K. Sadakane. New text indexing functionalities of the compressed
+     suffix arrays. Journal of Algorithms, 48(2):294--313, 2003.
+
+
+How to make
+===========
+To make the index just give the command 'make index', this will
+create 'csa.a'.
+
+How to use the index
+====================
+Just follow the API presented in the site:
+http://pizzachili.dcc.uchile.cl
+And, include, in your program, interface.h located in
+http://pizzachili.dcc.uchile.cl/utils/
+
+
+How to compile using the index
+==============================
+To use this index you must compile your program linking 'af-index.a'
+For examples:
+gcc your_program.c -lm -o your_program csa.a
+
+IMPORTANT
+=========
+-The function save has not been implemented, every time you build a index
+automatically will be saved.
+-This index does not support text with symbols equals to zero, please
+remap zero in your text and queries.
+
+Special options and cases
+=========================
+-if build_option="free_text" the index will 
+free the text immediately after finish used it.
+
+-if build_option="samplerate=<number>" then samplerate will be
+interval between two indices of the suffix array stored explicitly.
+That is, SA[i*samplerate] is stored explicitly. The default value is 16.
+
+-if build_option="samplepsi=<number>" then samplepsi will be
+interval between two indices of the psi function stored explicitly.
+That is, Psi[i*samplepsi] is stored explicitly. The default value is 128.
+
+-if you want specify more than one option, separate them with a ";".
+For example:
+build_option="free_text;samplerate=64"
+
+-To save an index of a text file "xxxx", always give "xxxx" as
+filename. The index will create two files "xxxx.idx" and "xxxx.psi".
+
+-To load an index of a text file "xxxx", always give "xxxx" as
+filename, and it will load "xxxx.idx" and "xxxx.psi".
+
+

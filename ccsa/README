@@ -1,0 +1,46 @@
+Introduction
+============
+This index implements a Compressed Compact Suffix Array (CCSA)
+For more information, see [MN2004a].
+
+How to make
+===========
+To make the index just give the command 'make index', this will
+create 'CCSA.a'.
+
+How to use the index
+====================
+Just follow the API presented in the site:
+http://pizzachili.dcc.uchile.cl
+And, include, in your program, interface.h located in
+http://pizzachili.dcc.uchile.cl/utils/
+
+
+How to compile using the index
+==============================
+To use this index you must compile your program linking 'CCSA.a'
+For examples:
+g++ your_program.cpp -o your_program CCSA.a
+
+Special options and cases
+=========================
+-if build_option="free_text" the index will 
+free the text immediately after finish used it.
+
+-if build_option="samplerate=<number>" the index will 
+mark one text position every <number> entries. The default value is 64.
+
+-if you want specify more than one option, separate them with a ";".
+For example:
+build_option="free_text;samplerate=64"
+
+-To save an index of a text file "xxxx", always give "xxxx" as
+filename. The index will create a file "xxxx.ccsa"
+
+-To load an index of a text file "xxxx", always give "xxxx" as
+filename, and it will load "xxxx.ccsa".
+
+
+[MN2004a] M\"akinen, V. and Navarro, G.  Compressed compact suffix arrays. In Proc. 15th
+Annual Symposium on Combinatorial Pattern Matching (CPM), LNCS v. 3109 (2004), pp.
+420-433.

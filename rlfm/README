@@ -1,0 +1,52 @@
+Introduction
+============
+This index implements a Run Length FM index: RLFM-index
+For more information, see [MN2004b, MN2004c, MN2005a].
+
+How to make
+===========
+To make the index just give the command 'make index', this will
+create 'RLFM.a'.
+
+How to use the index
+====================
+Just follow the API presented in the site:
+http://pizzachili.dcc.uchile.cl
+And, include, in your program, interface.h located in
+http://pizzachili.dcc.uchile.cl/utils/
+
+
+How to compile using the index
+==============================
+To use this index you must compile your program linking 'RLFM.a'
+For examples:
+g++ your_program.cpp -o your_program RLFM.a
+
+Special options and cases
+=========================
+-if build_option="free_text" the index will 
+free the text immediately after finish used it.
+
+-if build_option="samplerate=<number>" the index will 
+mark one text position every <number> entries. The default value is 64.
+
+-if you want specify more than one option, separate them with a ";".
+For example:
+build_option="free_text;samplerate=64"
+
+-To save an index of a text file "xxxx", always give "xxxx" as
+filename. The index will create a file "xxxx.rl"
+
+-To load an index of a text file "xxxx", always give "xxxx" as
+filename, and it will load "xxxx.rl".
+
+
+[MN2004b] M\"akinen, V. and Navarro, G. 2004b. New search algorithms and time/space tradeoffs for
+succinct suffix arrays. Technical Report C-2004-20 (April), University of Helsinki, Finland.
+
+[MN2004c] M\"akinen, V. and Navarro, G. 2004c. Run-length FM-index. In Proc. DIMACS Workshop:
+The Burrows-Wheeler Transform: Ten Years Later (Aug. 2004), pp. 17-19.
+
+[MN2005a] M\"akinen, V. and Navarro, G. 2005a. Succinct suffix arrays based on run-length encoding.
+In Proc. 16th Annual Symposium on Combinatorial Pattern Matching (CPM), LNCS v.
+3537 (2005), pp. 45-56.

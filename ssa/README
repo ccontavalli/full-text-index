@@ -1,0 +1,57 @@
+Introduction
+============
+This index implements a succinct full-text index.
+For more information, see [MN04].
+
+How to make
+===========
+To make the index just give the command 'make index', this will
+create 'SSA.a'.
+
+How to use the index
+====================
+Just follow the API presented in the site:
+http://pizzachili.dcc.uchile.cl
+And, include, in your program, interface.h located in
+http://pizzachili.dcc.uchile.cl/utils/
+
+
+How to compile using the index
+==============================
+To use this index you must compile your program linking 'SSA.a'
+For examples:
+g++ your_program.cpp -o your_program SSA.a
+
+Special options and cases
+=========================
+-if build_option="free_text" the index will 
+free the text immediately after finish used it.
+
+-if build_option="samplerate=<number>" the index will 
+mark the suffix array corresponding to every text position
+multiple of <number>. The default value is 64.
+
+-if build_option="sampletext=<number>" the index will 
+mark one text position every <number> entries. The default value is 64.
+
+-if build_option="factor=<number>" the rank structures will use (1/factor)%
+of overhead to resolve the rank queries. The default value is 4.
+
+-if you want specify more than one option, separate them with a ";".
+For example:
+build_option="free_text;samplerate=64"
+
+-To save an index of a text file "xxxx", always give "xxxx" as
+filename. The index will create a file "xxxx.ssa"
+
+-To load an index of a text file "xxxx", always give "xxxx" as
+filename, and it will load "xxxx.ssa".
+
+Changelog
+=========
+v3 better implementation of display, separate parameters of samplerate
+
+
+[MN04] Veli Makinen and Gonzalo Navarro. New search algorithms
+and space/time tardeoffs for succinct suffix arrays
+Technical report C-2004-20, Dept. CS, Univ. Helsinki, April 2004.

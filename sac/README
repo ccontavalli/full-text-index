@@ -1,0 +1,41 @@
+Introduction
+============
+This index implements a suffix array, using ceil(lg(n)) bits for
+each entry. Where n is the length of the text and lg is logarithm
+in base 2.
+
+How to make
+===========
+To make the index just give the command 'make index', this will
+create 'SAc.a'.
+
+How to use the index
+====================
+Just follow the API presented in the site:
+http://pizzachili.dcc.uchile.cl
+And, include, in your program, interface.h located in 
+http://pizzachili.dcc.uchile.cl/utils/
+
+
+How to compile using the index
+==============================
+To use this index you must compile your program linking 'SAc.a'
+For example:
+gcc your_program.c -o your_program SAc.a
+
+Special options and cases
+=========================
+-if build_option="copy_text" the index will copy the text
+an internal variable, and free it when the index is destroy.
+Otherwise the index will not own the text itself,
+then when you free the index the text will not be free.
+
+-if build_option="copy_text;free_text" the index will copy
+the text and free it immediately after copy it.
+
+-To save an index of a text file "xxxx", always give "xxxx" as 
+filename. The index will create a file "xxxx.sac"
+
+-To load an index of a text file "xxxx", always give "xxxx" as 
+filename, and it will load "xxxx" and "xxxx.sac" at search time.
+
