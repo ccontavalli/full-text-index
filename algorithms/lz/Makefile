@@ -13,7 +13,7 @@ run_queries: run_queries.c lzindex.a
 	gcc $(FLAGS) -o run_queries run_queries.c lzindex.a
 
 clean:
-	rm -f *.o *.a
+	rm -f *.o *.a build_index run_queries
 
 
 # generates the LZ-index library
