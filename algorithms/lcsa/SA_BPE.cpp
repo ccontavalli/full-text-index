@@ -38,6 +38,8 @@
 #include <fcntl.h>
 #include <math.h>
 
+#include "utils/interface.h"
+
 
 #ifndef uchar
 #define uchar unsigned char

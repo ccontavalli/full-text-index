@@ -35,6 +35,8 @@
 #include <stdbool.h>
 #include <assert.h>
 
+#include "utils/interface.h"
+
 #ifndef uchar
 #define uchar unsigned char
 #endif

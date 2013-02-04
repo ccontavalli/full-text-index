@@ -11,6 +11,10 @@
 #define ulong unsigned long
 #endif
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Error management */
 
         /* Returns a string describing the error associated with error number
@@ -59,8 +63,7 @@ int count (void *index, uchar *pattern, ulong length, ulong *numocc);
           occ (which must be freed by the caller) and writes the locations of 
           the numocc occurrences in occ, in arbitrary order.  */
 
-int locate (void *index, uchar *pattern, ulong length, ulong **occ, 
-        ulong *numocc);
+int locate (void *index, uchar *pattern, ulong length, ulong **occ, ulong *numocc);
 
         /* Gives the length of the text indexed */
 
@@ -73,8 +76,7 @@ int get_length(void *index, ulong *length);
           length of the text snippet actually extracted (that could be less 
           than to-from+1 if to is larger than the text size). */
 
-int extract (void *index, ulong from, ulong to, uchar **snippet, 
-        ulong *snippet_length);
+int extract (void *index, ulong from, ulong to, uchar **snippet, ulong *snippet_length);
 
         /* Displays the text (snippet) surrounding any occurrence of the 
           substring pattern[0..length-1] within the text indexed by index. 
@@ -87,10 +89,24 @@ int extract (void *index, ulong from, ulong to, uchar **snippet,
           snippet starting at every multiple of length+2*numc. The second 
           gives the real length of each of the numocc snippets. */
 
-int display (void *index, uchar *pattern, ulong length, ulong numc, 
-        ulong *numocc, uchar **snippet_text, ulong **snippet_lengths);
+int display (void *index, uchar *pattern, ulong length, ulong numc, ulong *numocc, uchar **snippet_text, ulong **snippet_len);
 
         /*  Obtains the length of the text indexed by index. */
 
 int length (void *index, ulong *length);
 
+int index_size_count (void *index, ulong *size);
+
+/* 
+ * Save index on memory 
+ */
+int save_index_mem (void *index, uchar *compress);
+
+/* 
+ * Load index from memory 
+ */
+int load_index_mem (void ** index, uchar *compress, ulong size);
+
+#ifdef __cplusplus
+}  // extern C
+#endif

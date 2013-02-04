@@ -47,6 +47,7 @@
 #include "bitarray.h"
 #include "HuffAlphabetRank.h"
 #include "Huffman_Codes.h"
+#include "utils/interface.h"
 //---------------------------------------------------------------------------
 
 /* Three function to variables to manage parameters */

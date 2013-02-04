@@ -30,13 +30,17 @@ genintervals: genintervals.c
 	$(CC) $(CFLAGS) -o genintervals genintervals.c
 
 build_index: build_index.c ../algorithms/$(TARGET)/$(TARGET).a
-	$(CC) $(CFLAGS) -o build_index build_index.c ../algorithms/$(TARGET)/$(TARGET).a
+	$(CXX) $(CFLAGS) -o build_index build_index.c ../algorithms/$(TARGET)/$(TARGET).a
 
 run_queries: run_queries.c ../algorithms/$(TARGET)/$(TARGET).a
-	$(CC) $(CFLAGS) -o run_queries run_queries.c ../algorithms/$(TARGET)/$(TARGET).a
+	$(CXX) $(CFLAGS) -o run_queries run_queries.c ../algorithms/$(TARGET)/$(TARGET).a
 
 ../algorithms/$(TARGET)/$(TARGET).a:
 	$(MAKE) -C ../algorithms/$(TARGET) $(TARGET).a
 
 clean:
 	rm -f cut compare alph entrop entrop2 entrop3 gentext genpatterns genintervals run_queries build_index
+	make -C ../algorithms clean
+
+cleanall: clean
+	make -C ../algorithms cleanall

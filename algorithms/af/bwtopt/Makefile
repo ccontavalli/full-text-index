@@ -35,11 +35,9 @@ bwtopt: bwtopt.c bwtopt1.c
 
 clean: 
 	rm -f *.o  bwtopt
+
+cleanall: clean
+	rm -f *.a
+
 tarfile:
 	tar zcvf bwtopt.tgz ?akefile *.c *.a *.h 
-            
-
-
-
-
-

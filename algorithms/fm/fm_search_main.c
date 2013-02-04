@@ -2,12 +2,14 @@
  *	pattern search in .fmi files 
  */
 
-#include "interface.h"
 #include <getopt.h>
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
+
+#include "utils/interface.h"
 
 void print_usage(char *program_name);
 void do_extract(void  *index, uint32_t  position, uint32_t nchars);

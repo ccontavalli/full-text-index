@@ -38,17 +38,14 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#if 1
- #include <sys/timeb.h>
-#else
- #include <sys/time.h>
- #include <sys/resource.h>
-#endif
-#include "comparray4.h"
-#include "386.c"
+#include <sys/timeb.h>
 #include <limits.h>
 #include <stdbool.h>
 #include <string.h>
+
+#include "comparray4.h"
+#include "386.c"
+#include "utils/interface.h"
 
 #ifndef uchar
 #define uchar unsigned char

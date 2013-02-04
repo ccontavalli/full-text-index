@@ -46,8 +46,9 @@
 #include <assert.h>
 #include <string.h>
 #include <unistd.h>
-#include "386.c"
 
+#include "utils/interface.h"
+#include "386.c"
 
 /* --- read proptotypes and typedef --- */
 #include "basic.h"

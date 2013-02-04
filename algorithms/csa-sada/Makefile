@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-O9 -DNDEBUG
+CFLAGS=-O9 -DNDEBUG -I../../
 
 all: csa-sada.a
 

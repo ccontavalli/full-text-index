@@ -1,9 +1,9 @@
 /* This program doesn't use the Pizza&Chili Api */
 
-#include "interface.h"
 #include "fm_index.h"
 #include "fm_build.h"
 #include <unistd.h>
+#include "utils/interface.h"
 
 void print_usage();
 

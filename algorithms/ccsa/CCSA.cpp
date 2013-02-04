@@ -42,6 +42,8 @@
 #include <sys/times.h>
 #include <assert.h>
 #include <string.h>
+
+#include "utils/interface.h"
 #include "ds/ds_ssort.h"
 #include "basic.h"
 #include "bitarray.h"

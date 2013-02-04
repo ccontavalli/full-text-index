@@ -13,8 +13,8 @@ all: ssa.a
 %.o: %.cpp *.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-ssa.a: SSA.o bitarray.o HuffAlphabetRank.o Huffman_Codes.o $(DSFILES)
-	ar rc ssa.a SSA.o bitarray.o HuffAlphabetRank.o Huffman_Codes.o $(DSFILES)
+ssa.a: SSA.o bitarray.o HuffAlphabetRank.o bitrankw32int.o Huffman_Codes.o $(DSFILES)
+	ar rc ssa.a SSA.o bitarray.o HuffAlphabetRank.o bitrankw32int.o Huffman_Codes.o $(DSFILES)
 clean:
 	rm -f *~ *.o ; cd $(DSDIR) ; make -f Makefile clean ; cd ..
 cleanall:

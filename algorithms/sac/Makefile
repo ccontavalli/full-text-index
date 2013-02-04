@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS= -W -Wall -pedantic -pedantic-errors -O9 -DNDEBUG -I../../
+CFLAGS= -W -Wall -pedantic -O9 -DNDEBUG -I../../
 
 DSDIR=../../ds
 DSFILES=$(DSDIR)/ds.o $(DSDIR)/globals.o $(DSDIR)/helped.o $(DSDIR)/shallow.o $(DSDIR)/deep2.o $(DSDIR)/blind2.o 

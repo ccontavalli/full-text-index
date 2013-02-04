@@ -1,7 +1,7 @@
-#include "interface.h"
 #include "ds_ssort.h" // init_ds_ssort
 #include <stdio.h>
 #include <string.h>
+#include "utils/interface.h"
 
 /* macro to detect and notify errors  */
 #define IFERROR(error) {{if (error) { fprintf(stderr, "%s\n", error_index(error)); exit(1); }}}

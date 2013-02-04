@@ -1,5 +1,5 @@
 #FLAGS = -g -lm
-FLAGS = -O9 -lm -fomit-frame-pointer -W -Wall -Winline -DDEBUG=0 -DNDEBUG=1
+FLAGS = -O9 -lm -fomit-frame-pointer -W -Wall -Winline -DDEBUG=0 -DNDEBUG=1 -I../..
 #FLAGS = -O9 -DQUERYREPORT -lm -fomit-frame-pointer -W -Wall -Winline -DDEBUG=0 -DNDEBUG=1
 #FLAGS = -O9 -DQUERYTIME 
 #FLAGS = -O9 -DINDEXREPORT 
@@ -95,7 +95,3 @@ trie.c: trie.h
 	touch trie.c
 heap.c: heap.h
 	touch heap.c
-run_queries.c: interface.h
-	touch run_queries.c
-build_index.c: interface.h
-	touch build_index.c

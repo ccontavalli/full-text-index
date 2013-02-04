@@ -1,8 +1,10 @@
-
 #include "lzindex.h"
+
+#include "utils/interface.h"
 #include "search.c"
 #include "index.c"
 #include "persist.c"
+
 
         // frees lzindex
 

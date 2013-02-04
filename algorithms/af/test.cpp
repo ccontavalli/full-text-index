@@ -3,7 +3,7 @@
 #include <sys/time.h>
 #include <time.h>
 
-#include "interface.h"
+#include "utils/interface.h"
 
 using namespace std;
 

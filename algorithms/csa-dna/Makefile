@@ -1,8 +1,8 @@
 CC = gcc
-CFLAGS = -O3
+CFLAGS = -O3 -I../../
 #CFLAGS = -O3 -m64 -DBIT64
 
-csa-dna.a: comparray5.o core.o comparray5.h typedef.h interface.o interface.h qsufsort.o
+csa-dna.a: comparray5.o core.o comparray5.h typedef.h interface.o qsufsort.o
 	ar rc csa-dna.a interface.o comparray5.o core.o qsufsort.o
 
 mkcsa: mkarray2.c qsufsort.c comparray5.c core.c comparray5.h typedef.h

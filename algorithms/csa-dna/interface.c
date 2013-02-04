@@ -4,7 +4,7 @@
 
 #include "typedef.h"
 #include "comparray5.h"
-#include "interface.h"
+#include "utils/interface.h"
 
 static int strlen2(unsigned char *p)
 {

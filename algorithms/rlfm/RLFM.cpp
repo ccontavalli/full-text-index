@@ -47,6 +47,8 @@ In Proc. 16th Annual Symposium on Combinatorial Pattern Matching (CPM), LNCS v.
 #include <sys/times.h>
 #include <assert.h>
 #include <string.h>
+
+#include "utils/interface.h"
 #include "ds/ds_ssort.h"
 #include "basic.h"
 #include "bitarray.h"
