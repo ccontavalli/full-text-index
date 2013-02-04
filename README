@@ -1,0 +1,74 @@
+About this repository
+=====================
+
+This repository contains a collection of algorithms to create full
+text indexes that are succint in space, as described here:
+
+    http://pizzachili.di.unipi.it/
+
+All the work to collect the algorithms, get them to work, provide utilities to
+benchmark and test them has been done by Paolo Ferragina (University of Pisa)
+and Gonzalo Navarro (University of Chile), and the people mentioned on their
+site:
+
+    http://pizzachili.di.unipi.it/initiative.html
+
+Minor changes have been performed in this repository to have the algorithms
+compile against recent versions of gcc and libc, have slightly more uniform
+Makefiles, and to work in the directory hierarchy described below.
+
+
+Directory hierarchy
+===================
+
+  - utils/ contains various benchmarking / testing utilities that should
+    work with all algorithms. More documentation is provided here:
+      http://pizzachili.di.unipi.it/experiments.html
+
+  - ds/ contains an implementation of the Deep-Shallow Suffix Sorting
+    algorithm by G. Manzioni. [1]
+
+  - algorithms/ directory contains a subdirectory for each algorithm.
+    In particular:
+
+      csa-dna
+      csa-sada
+        http://pizzachili.di.unipi.it/indexes/Compressed_Suffix_Array/
+        
+      fm - http://pizzachili.di.unipi.it/indexes/FM-indexV2/
+      lcsa - http://pizzachili.di.unipi.it/indexes/Locally_Compressed_Suffix_Array/
+      lz - http://pizzachili.di.unipi.it/indexes/LZ-index/
+      ssa - http://pizzachili.di.unipi.it/indexes/Succinct_Suffix_Array/
+      af - http://pizzachili.di.unipi.it/indexes/Alphabet-Friendly_FM-Index/
+      ccsa - http://pizzachili.di.unipi.it/indexes/Compressed_Compact_Suffix_Array/
+      
+      rlfm 
+      rpsa
+        http://pizzachili.di.unipi.it/indexes/Run_Length_FM_index/
+      
+      sac
+      sau
+        http://pizzachili.di.unipi.it/indexes/Suffix_Array/
+
+
+To compile and use
+==================
+
+1) Go compile the algorithm you want to test, for example:
+
+    $ cd algorithms/fm && make
+
+2) Go compile the utilities, linking against one of the algorithms:
+
+    $ cd utils && make TARGET=fm
+
+3) Repeat 2) for each algorithm you are interested in.
+
+
+[1]:
+G. Manzini, P. Ferragina
+Engineering a Lightweight Suffix Array Construction Algorithm.
+Proc. 10th European Symposium on Algorithms (ESA '02).
+Springer Verlag Lecture Notes in Computer Science n. 2461, pp 698-710.
+http://www.mfn.unipmn.it/~manzini/lightweight
+
