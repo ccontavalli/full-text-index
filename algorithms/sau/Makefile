@@ -8,9 +8,9 @@ DSFILES=$(DSDIR)/ds.o $(DSDIR)/globals.o $(DSDIR)/helped.o $(DSDIR)/shallow.o $(
 %.o: %.c *.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-all: index
-index: SAu.o $(DSFILES)
-	ar rc SAu.a SAu.o $(DSFILES)
+all: sau.a
+sau.a: SAu.o $(DSFILES)
+	ar rc sau.a SAu.o $(DSFILES)
 clean:
 	rm -f *~ *.o ; cd $(DSDIR) ; make -f Makefile clean ; cd ..
 cleanall:

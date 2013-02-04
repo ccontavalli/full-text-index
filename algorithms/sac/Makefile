@@ -4,9 +4,10 @@ CFLAGS= -W -Wall -pedantic -pedantic-errors -O9 -DNDEBUG -I../../
 DSDIR=../../ds
 DSFILES=$(DSDIR)/ds.o $(DSDIR)/globals.o $(DSDIR)/helped.o $(DSDIR)/shallow.o $(DSDIR)/deep2.o $(DSDIR)/blind2.o 
 
-all: index
-index: SAc.o $(DSFILES)
-	ar rc SAc.a SAc.o $(DSFILES)
+all: sac.a
+
+sac.a: SAc.o $(DSFILES)
+	ar rc sac.a SAc.o $(DSFILES)
 clean:
 	rm -f *~ *.o ; cd $(DSDIR) ; make -f Makefile clean ; cd ..
 cleanall:

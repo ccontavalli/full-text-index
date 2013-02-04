@@ -5,16 +5,20 @@ FLAGS = -O9 -lm -fomit-frame-pointer -W -Wall -Winline -DDEBUG=0 -DNDEBUG=1
 #FLAGS = -O9 -DINDEXREPORT 
 #FLAGS = -O9 -DINDEXREPORT -DMEMCTRL
 
-all: lzindex.a
+all: lz.a
 
 clean:
-	rm -f *.o *.a
+	rm -f *.o
+
+cleanall: clean
+	rm -f *.a
+
 
 
 # generates the LZ-index library
 
-lzindex.a: lzindex.o lztrie.o revtrie.o nodemap.o position.o trie.o heap.o parentheses.o bitmap.o hash.o mappings.o basics.o
-	ar rc lzindex.a lzindex.o lztrie.o revtrie.o nodemap.o position.o trie.o heap.o parentheses.o bitmap.o hash.o mappings.o basics.o 
+lz.a: lzindex.o lztrie.o revtrie.o nodemap.o position.o trie.o heap.o parentheses.o bitmap.o hash.o mappings.o basics.o
+	ar rc lz.a lzindex.o lztrie.o revtrie.o nodemap.o position.o trie.o heap.o parentheses.o bitmap.o hash.o mappings.o basics.o 
 
 lzindex.o: lzindex.c search.c index.c persist.c
 	gcc $(FLAGS) -c lzindex.c

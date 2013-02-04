@@ -1,44 +1,42 @@
+CFLAGS=-O9
 
 all: cut compare alph entrop entrop2 entrop3 gentext genpatterns genintervals build_index run_queries 
 
 cut: cut.c
-	gcc -O9 -o cut cut.c
+	$(CC) $(CFLAGS) -o cut cut.c
 
 compare: compare.c
-	gcc -O9 -o compare compare.c
+	$(CC) $(CFLAGS) -o compare compare.c
 
 alph: alph.c
-	gcc -O9 -o alph alph.c
+	$(CC) $(CFLAGS) -o alph alph.c
 
 entrop: entrop.c
-	gcc -O9 -o entrop entrop.c -lm
+	$(CC) $(CFLAGS) -o entrop entrop.c -lm
 
 entrop2: entrop2.c
-	gcc -O9 -o entrop2 entrop2.c -lm
+	$(CC) $(CFLAGS) -o entrop2 entrop2.c -lm
 
 entrop3: entrop3.c
-	gcc -O9 -o entrop3 entrop3.c -lm
+	$(CC) $(CFLAGS) -o entrop3 entrop3.c -lm
 
 gentext: gentext.c
-	gcc -O9 -o gentext gentext.c
+	$(CC) $(CFLAGS) -o gentext gentext.c
 
 genpatterns: genpatterns.c
-	gcc -O9 -o genpatterns genpatterns.c
+	$(CC) $(CFLAGS) -o genpatterns genpatterns.c
 
 genintervals: genintervals.c
-	gcc -O9 -o genintervals genintervals.c
+	$(CC) $(CFLAGS) -o genintervals genintervals.c
 
-#build_index.o: build_index.c
-#	gcc -O9 build_index.c
+build_index: build_index.c ../algorithms/$(TARGET)/$(TARGET).a
+	$(CC) $(CFLAGS) -o build_index build_index.c ../algorithms/$(TARGET)/$(TARGET).a
 
-build_index: 
-	echo 'To make build_index: <compiler> -O9 -o build_index build_index.o <your index library>' ; echo 'The correct <compiler> depends on which one is used to build the library, gcc or g++'
+run_queries: run_queries.c ../algorithms/$(TARGET)/$(TARGET).a
+	$(CC) $(CFLAGS) -o run_queries run_queries.c ../algorithms/$(TARGET)/$(TARGET).a
 
-#run_queries.o: run_queries.c
-#	gcc -O9 run_queries.c
-
-run_queries: 
-	echo 'To make run_queries: <compiler> -O9 -o run_queries run_queries.o <your index library>' ; echo 'The correct <compiler> depends on which one is used to build the library, gcc or g++'
+../algorithms/$(TARGET)/$(TARGET).a:
+	$(MAKE) -C ../algorithms/$(TARGET) $(TARGET).a
 
 clean:
-	rm -f cut compare alph entrop entrop2 entrop3 gentext genpatterns genintervals
+	rm -f cut compare alph entrop entrop2 entrop3 gentext genpatterns genintervals run_queries build_index

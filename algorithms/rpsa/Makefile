@@ -11,12 +11,12 @@ DSFILES=$(DSDIR)/ds.o $(DSDIR)/globals.o $(DSDIR)/helped.o $(DSDIR)/shallow.o $(
 %.o: %.cpp *.h
 	$(CC) -c $(CFLAGS) $< -o $@
 
-all: RPSA.a
+all: rpsa.a
 
 redo: cleanall all
 
-RPSA.a: SA_BPE.o bpe.o bitrankw32int.o mylist.o Treap.o $(DSFILES)
-	ar rc RPSA.a SA_BPE.o bpe.o bitrankw32int.o mylist.o Treap.o $(DSFILES)
+rpsa.a: SA_BPE.o bpe.o bitrankw32int.o mylist.o Treap.o $(DSFILES)
+	ar rc rpsa.a SA_BPE.o bpe.o bitrankw32int.o mylist.o Treap.o $(DSFILES)
 clean:
 	rm -f *~ *.o ; cd $(DSDIR) ; make -f Makefile clean ; cd ..
 cleanall:

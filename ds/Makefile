@@ -48,7 +48,3 @@ cleanall:
 	rm -f *.o *.a bwt ds testlcp unbwt
 
 index: ds.o globals.o shallow.o helped.o deep2.o blind2.o
-
-
-
-
