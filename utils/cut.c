@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <errno.h>
 
+#include "common.h"
+
 char buf[1024*1024];
 
 main (int argc, char **argv)

@@ -8,6 +8,8 @@
 #include <string.h>
 #include <errno.h>
 
+#include "common.h"
+
 static int Seed;
 #define ACMa 16807
 #define ACMm 2147483647

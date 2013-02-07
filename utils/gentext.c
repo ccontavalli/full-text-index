@@ -6,6 +6,8 @@
 #include <time.h>
 #include <sys/time.h>
 
+#include "common.h"
+
 static int Seed;
 #define ACMa 16807
 #define ACMm 2147483647

@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <errno.h>
 
+#include "common.h"
+
 #define maxk 8
 #define hsize (1 << 25) // 512 MB of RAM required
 #define PRIME1 ((unsigned)51493313)

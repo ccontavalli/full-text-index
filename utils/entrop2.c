@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include <errno.h>
 
+#include "common.h"
+
 #define maxk 12 
 #define hsize (34*1024*1024) // try not to exceed too much the number of
 			     // text k-contexts

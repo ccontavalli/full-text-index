@@ -8,6 +8,7 @@
 #include <unistd.h>
 
 #include "interface.h"
+#include "common.h"
 
 /* only for getTime() */
 #include <sys/time.h>

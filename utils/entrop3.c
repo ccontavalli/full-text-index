@@ -10,6 +10,8 @@
 #include <string.h>
 #include <sys/stat.h>
 
+#include "common.h"
+
 double entrop0 (unsigned long *freq, unsigned long tot)
 
   { double entr;
