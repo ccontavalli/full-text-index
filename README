@@ -54,15 +54,11 @@ Directory hierarchy
 To compile and use
 ==================
 
-1) Go compile the algorithm you want to test, for example:
+1) Compile the utilities against the algorithm you want to test. To do so:
 
-    $ cd algorithms/fm && make
+    $ cd utils && make TARGET=<algorithm>
 
-2) Go compile the utilities, linking against one of the algorithms:
-
-    $ cd utils && make TARGET=fm
-
-3) Repeat 2) for each algorithm you are interested in.
+2) Repeat 1) for each algorithm you are interested in.
 
 
 [1]:
