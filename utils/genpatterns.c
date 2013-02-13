@@ -99,7 +99,9 @@ void parse_forbid(unsigned char *forbid, unsigned char ** forbide) {
 
 main (int argc, char **argv)
 {
-	int n, m, J, t;
+	int n, t;
+	int arg_num_patterns; 
+	int arg_pattern_length;
 	struct stat sdata;
 	FILE *ifile, *ofile;
 	unsigned char *buff;
@@ -108,7 +110,7 @@ main (int argc, char **argv)
 	if (argc < 5)
 	{
 		fprintf (stderr,
-			 "Usage: genpatterns <file> <length> <number> <patterns file> <forbidden>\n"
+			 "Usage: genpatterns <file> <length> <number> <patterns file> [forbidden]\n"
 			 "  randomly extracts <number> substrings of length <length> from <file>,\n"
 			 "  avoiding substrings containing characters in <forbidden>.\n"
 			 "  The output file, <patterns file> has a first line of the form:\n"
@@ -127,8 +129,8 @@ main (int argc, char **argv)
 	}
 	n = sdata.st_size;
 
-	m = atoi (argv[2]);
-	if ((m <= 0) || (m > n))
+	arg_pattern_length = atoi (argv[2]);
+	if ((arg_pattern_length <= 0) || (arg_pattern_length > n))
 	{
 		fprintf (stderr,
 			 "Error: length must be >= 1 and <= file length"
@@ -136,8 +138,8 @@ main (int argc, char **argv)
 		exit (1);
 	}
 
-	J = atoi (argv[3]);
-	if (J < 1)
+	arg_num_patterns = atoi (argv[3]);
+	if (arg_num_patterns < 1)
 	{
 		fprintf (stderr, "Error: number of patterns must be >= 1\n");
 		exit (1);
@@ -183,7 +185,7 @@ main (int argc, char **argv)
 	}
 
 	if (fprintf (ofile, "# number=%i length=%i file=%s forbidden=%s\n",
-		     J, m, argv[1],
+		     arg_num_patterns, arg_pattern_length, argv[1],
 		     forbid == NULL ? "" : (char *) forbid) <= 0)
 	{
 		fprintf (stderr, "Error: cannot write file %s\n", argv[4]);
@@ -191,28 +193,26 @@ main (int argc, char **argv)
 		exit (1);
 	}
 
-	for (t = 0; t < J; t++)
+	for (t = 0; t < arg_num_patterns; t++)
 	{
 		int j, l;
 		if (!forbide)
-			j = aleat (n - m + 1);
+			j = aleat (n - arg_pattern_length + 1);
 		else
 		{
 			do
 			{
-				j = aleat (n - m + 1);
-				for (l = 0; l < m; l++)
+				j = aleat (n - arg_pattern_length + 1);
+				for (l = 0; l < arg_pattern_length; l++)
 					if (strchr (forbide, buff[j + l]))
 						break;
 			}
-			while (l < m);
+			while (l < arg_pattern_length);
 		}
-		for (l = 0; l < m; l++)
+		for (l = 0; l < arg_pattern_length; l++)
 			if (putc (buff[j + l], ofile) != buff[j + l])
 			{
-				fprintf (stderr,
-					 "Error: cannot write file %s\n",
-					 argv[4]);
+				fprintf (stderr, "Error: cannot write file %s\n", argv[4]);
 				fprintf (stderr, " errno = %i\n", errno);
 				exit (1);
 			}
