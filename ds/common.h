@@ -49,10 +49,3 @@ typedef unsigned char Bool;
 
 int scmp3(unsigned char *p, unsigned char *q, int *l, int maxl);
 void pretty_putchar(int c);
-
-
-
-
-
-
-

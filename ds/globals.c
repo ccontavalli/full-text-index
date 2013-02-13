@@ -6,6 +6,7 @@
    ******************************************************************* */
 #include <stdio.h>
 #include "common.h"
+#include "ds_ssort.h"
 
 
 /* ---- global variables (modifiable by command line options) ----- */

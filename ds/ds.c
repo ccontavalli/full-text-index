@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "common.h"
+#include "ds_ssort.h"
 
 /* ----- external variables ---------- */
 extern int Anchor_dist;
