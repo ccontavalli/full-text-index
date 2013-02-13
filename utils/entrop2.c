@@ -3,10 +3,10 @@
  // 2-pass method, first counts frequencies, then allocates arrays for H0
  // it is a bit slower but uses memory better
 
+#include "common.h"
+
 #include <stdio.h>
 #include <errno.h>
-
-#include "common.h"
 
 #define maxk 12 
 #define hsize (34*1024*1024) // try not to exceed too much the number of

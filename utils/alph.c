@@ -1,10 +1,10 @@
 
  // Counts alphabet size of a file
 
+#include "common.h"
+
 #include <stdio.h>
 #include <errno.h>
-
-#include "common.h"
 
 unsigned char buf[1024*1024];
 

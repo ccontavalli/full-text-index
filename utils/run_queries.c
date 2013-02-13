@@ -2,13 +2,14 @@
  * Run Queries
  */
 
+#include "common.h"
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
 
 #include "interface.h"
-#include "common.h"
 
 /* only for getTime() */
 #include <sys/time.h>

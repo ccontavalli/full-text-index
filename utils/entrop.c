@@ -2,10 +2,10 @@
  // Computes empirical k-th order entropy.
  // Could be made a bit more efficient
 
+#include "common.h"
+
 #include <stdio.h>
 #include <errno.h>
-
-#include "common.h"
 
 #define maxk 8
 #define hsize (1 << 25) // 512 MB of RAM required

@@ -5,12 +5,12 @@
  // So results can be slightly different from those of entrop and entrop2
  // (look for comment "REVERSE" to achieve the same result of entrop[2])
 
+#include "common.h"
+
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>
 #include <sys/stat.h>
-
-#include "common.h"
 
 double entrop0 (unsigned long *freq, unsigned long tot)
 

@@ -1,10 +1,10 @@
 
  // Cuts a file, leaving a prefix of a given number of megabytes
 
+#include "common.h"
+
 #include <stdio.h>
 #include <errno.h>
-
-#include "common.h"
 
 char buf[1024*1024];
 
