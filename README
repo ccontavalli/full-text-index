@@ -61,6 +61,24 @@ To compile and use
 2) Repeat 1) for each algorithm you are interested in.
 
 
+Testing the algorithms
+======================
+
+1) Find a good large file you'd like to use, let's call it input.txt.
+
+2) Generate patterns to work with, use soemething like:
+
+    $ cd utils; ./genpatterns ./input.txt 10 1000 ./patterns.txt
+
+3) Build an index of your input file:
+
+    $ cd utils; ./build_index ./input.txt ./index
+
+4) Run the test queries defined by the patterns file:
+
+    $ cd utils; ./run_queries ./index C < ./patterns.txt
+
+
 [1]:
 G. Manzini, P. Ferragina
 Engineering a Lightweight Suffix Array Construction Algorithm.
